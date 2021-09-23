@@ -26,3 +26,13 @@ L.geoJSON(granJardin, {
   },
   onEachFeature: _onEachFeature,
 }).addTo(leafletMap);
+
+//NOTES FROM 22/09/2021
+const onMapClick = (e) => {
+  L.popup()
+    .setLatLng(e.latlng)
+    .setContent(`You have clicked on: ${e.latlng}`)
+    .openOn(leafletMap);
+};
+
+leafletMap.on('click', onMapClick);
